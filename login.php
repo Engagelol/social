@@ -1,4 +1,4 @@
-<?php 
+<?php
   require_once 'header.php';
   $error = $user = $pass = "";
 
@@ -28,12 +28,12 @@
       }
     }
   }
+?>
 
-echo <<<_END
       <form method='post' action='login.php'>
         <div data-role='fieldcontain'>
           <label></label>
-          <span class='error'>$error</span>
+          <span class='error'><?php echo $error ?></span>
         </div>
         <div data-role='fieldcontain'>
           <label></label>
@@ -55,5 +55,3 @@ echo <<<_END
     </div>
   </body>
 </html>
-_END;
-?>

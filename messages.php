@@ -1,4 +1,4 @@
-<?php 
+<?php
   require_once 'header.php';
 
   if (!$loggedin) die("</div></body></html>");
@@ -30,8 +30,7 @@
 
     echo "<h3>$name1 Messages</h3>";
     showProfile($view);
-
-    echo <<<_END
+?>
       <form method='post' action='messages.php?view=$view'>
         <fieldset data-role="controlgroup" data-type="horizontal">
           <legend>Type here to leave a message</legend>
@@ -43,8 +42,7 @@
       <textarea name='text'></textarea>
       <input data-transition='slide' type='submit' value='Post Message'>
     </form><br>
-_END;
-
+<?php
     date_default_timezone_set('UTC');
 
     if (isset($_GET['erase']))

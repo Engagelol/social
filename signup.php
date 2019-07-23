@@ -1,28 +1,5 @@
-<?php 
+<?php
   require_once 'header.php';
-
-echo <<<_END
-  <script>
-    function checkUser(user)
-    {
-      if (user.value == '')
-      {
-        $('#used').html('&nbsp;')
-        return
-      }
-
-      $.post
-      (
-        'checkuser.php',
-        { user : user.value },
-        function(data)
-        {
-          $('#used').html(data)
-        }
-      )
-    }
-  </script>
-_END;
 
   $error = $user = $pass = "";
   if (isset($_SESSION['user'])) destroySession();
@@ -47,9 +24,9 @@ _END;
       }
     }
   }
+?>
 
-echo <<<_END
-      <form method='post' action='signup.php'>$error
+      <form method='post' action='signup.php'><?=$error?>
       <div data-role='fieldcontain'>
         <label></label>
         Please enter your details to sign up
@@ -71,5 +48,3 @@ echo <<<_END
     </div>
   </body>
 </html>
-_END;
-?>

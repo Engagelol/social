@@ -1,17 +1,17 @@
 <?php
   session_start();
-  require_once 'header.php';
-
-  echo "<div class='center'>Welcome to Society";
-
-  if ($loggedin) echo " $user, you are logged in";
-  else           echo ' please sign up or log in';
+  // Инициализировать базу
+  require_once 'db_connect.php';
+  // Инициализацию
+  require_once 'init.php';
+  // Подключить дополнительные функции
+  require_once 'functions.php';
+  // Получить route
+  $route = isset($_GET['page']) ? $_GET['page'] : 'default'; // f. e. members localhost/?route=members
+  // Загрузить модель (данные)
+  require_once 'models/' . $route . '-model.php';
+  // Загрузить контроллер ()
+  require_once 'controllers/' . $route . '-controller.php';
+  // Загрузить отображение (html)
+  require_once 'templates/' . $route . '-view.php';
 ?>
-      </div><br>
-    </div>
-    <div data-role="footer">
-      <h4>Web App from <i><a href='http://lpmj.net/5thedition'
-      target='_blank'>Learning PHP MySQL & JavaScript Ed. 5</a></i></h4>
-    </div>
-  </body>
-</html>

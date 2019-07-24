@@ -22,8 +22,13 @@
         $_SESSION['user'] = $user;
         $_SESSION['pass'] = $pass;
         die("<div class='center'>You are now logged in. Please
+<<<<<<< HEAD
              <a data-transition='slide' href='members.php?view=$user'>click here</a>
              to continue.");
+=======
+             <a data-transition='slide' href='members.php?view=<?=$user?>'>click here</a>
+             to continue.</div></div></body></html>");
+>>>>>>> 03aa9cd37964960687af7bb01c8a9d41f98029dd
       }
     }
   }

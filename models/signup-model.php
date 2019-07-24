@@ -18,7 +18,11 @@
       else
       {
         queryMysql("INSERT INTO members VALUES('$user', '$pass')");
+<<<<<<< HEAD
         die("<h4>Account created</h4><a href='?page=login'>Please Log in.</a>");
+=======
+        die('<h4>Account created</h4>Please Log in.');
+>>>>>>> 2dd9a10f8be4139fe439817f63ebb4e2e99a4714
       }
     }
   }

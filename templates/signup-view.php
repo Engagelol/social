@@ -1,6 +1,10 @@
 <?php require 'header.php'; ?>
 
+<<<<<<< HEAD
       <form method='post' action='?page=signup'><?=$error?>
+=======
+      <form method='post' action='signup-model.php'><?=$error?>
+>>>>>>> 2dd9a10f8be4139fe439817f63ebb4e2e99a4714
       <div data-role='fieldcontain'>
         <label></label>
         Please enter your details to sign up

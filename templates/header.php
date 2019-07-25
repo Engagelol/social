@@ -37,10 +37,4 @@
           <p class='info'>(You must be logged in to use this app)</p>
         <?php endif; ?>
       </div>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
     </div>
->>>>>>> 03aa9cd37964960687af7bb01c8a9d41f98029dd
->>>>>>> 2dd9a10f8be4139fe439817f63ebb4e2e99a4714

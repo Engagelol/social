@@ -82,6 +82,5 @@
 
   if (!$friends) echo "<br>You don't have any friends yet.";
 
-  require_once 'header.php';
   require_once 'footer.php';
 ?>

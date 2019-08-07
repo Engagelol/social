@@ -5,5 +5,6 @@
 
     if ($view == $user) $name = "Your";
     else                $name = "$view's";
+  }
 
 ?>

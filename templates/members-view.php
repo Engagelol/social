@@ -1,6 +1,6 @@
 <?php require_once 'header.php'; ?>
 
-  <h3>$name Profile</h3>
+  <h3><?=$name?> Profile</h3>
 
   <?php showProfile($view); ?>
 

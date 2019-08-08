@@ -1,15 +1,15 @@
 <?php
-if (isset($_POST['text']))
-  {
-    $text = sanitizeString($_POST['text']);
-
-    if ($text != "")
+  if (isset($_POST['text']))
     {
-      $pm   = substr(sanitizeString($_POST['pm']),0,1);
-      $time = time();
-      queryMysql("INSERT INTO messages VALUES(NULL, '$user',
-        '$view', '$pm', $time, '$text')");
-    }
+      $text = sanitizeString($_POST['text']);
+
+      if ($text != "")
+      {
+        $pm   = substr(sanitizeString($_POST['pm']),0,1);
+        $time = time();
+        queryMysql("INSERT INTO messages VALUES(NULL, '$user',
+          '$view', '$pm', $time, '$text')");
+      }
   }
   if (isset($_GET['erase']))
   {

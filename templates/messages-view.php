@@ -1,6 +1,7 @@
 <?php require_once 'header.php'; ?>
 
   <h3><?=$name1?> Messages</h3>
+  
   <?php showProfile($view); ?>
 
   <form method='post' action='?page=messages&view=<?=$view?>'>
@@ -14,6 +15,7 @@
     <textarea name='text'></textarea>
     <input data-transition='slide' type='submit' value='Post Message'>
   </form><br>
+
 <?php date_default_timezone_set('UTC'); ?>
 
 <? //РАЗОБРАТЬ!!!!!!!!!!!!!!!!!!

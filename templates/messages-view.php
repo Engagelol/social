@@ -1,7 +1,7 @@
 <?php require_once 'header.php'; ?>
 
   <h3><?=$name1?> Messages</h3>
-  
+
   <?php showProfile($view); ?>
 
   <form method='post' action='?page=messages&view=<?=$view?>'>
@@ -18,9 +18,9 @@
 
 <?php date_default_timezone_set('UTC'); ?>
 
-<? //РАЗОБРАТЬ!!!!!!!!!!!!!!!!!!
-    for ($j = 0 ; $j < $num ; ++$j)
-    {
+<?php
+  for ($j = 0 ; $j < $num ; ++$j)
+  {
       $row = $result->fetch_array(MYSQLI_ASSOC);
 
       if ($row['pm'] == 0 || $row['auth'] == $user || $row['recip'] == $user)
@@ -41,7 +41,6 @@
 
         echo "<br>";
       }
-    }
   }
 ?>
 

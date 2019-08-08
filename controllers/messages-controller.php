@@ -9,7 +9,7 @@
     if ($view == $user) $name1 = $name2 = "Your";
     else
     {
-      $name1 = "<a href='members.php?view=$view'>$view</a>'s";
+      $name1 = "<a href='?page=members&view=$view'>$view</a>'s";
       $name2 = "$view's";
     }
 ?>

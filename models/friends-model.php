@@ -1,4 +1,5 @@
 <?php
+
   $followers = array();
   $following = array();
 

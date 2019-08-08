@@ -12,7 +12,7 @@
   else
   {
     $name1 = "<a data-transition='slide'
-              href='members.php?view=$view'>$view</a>'s";
+              href='?page=members&view=$view'>$view</a>'s";
     $name2 = "$view's";
     $name3 = "$view is";
   }

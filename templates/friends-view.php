@@ -1,42 +1,48 @@
-<?php
-  require_once 'header.php';
+<?php require_once 'header.php'; ?>
 
-  // Uncomment this line if you wish the user�s profile to show here
-  // showProfile($view);
+<!--  // Uncomment this line if you wish the user�s profile to show here
+  // showProfile($view); -->
 
-  echo "<br>";
+  <br>
 
-  if (sizeof($mutual))
-  {
-    echo "<span class='subhead'>$name2 mutual friends</span><ul>";
-    foreach($mutual as $friend)
-      echo "<li><a data-transition='slide'
-            href='members.php?view=$friend'>$friend</a>";
-    echo "</ul>";
-    $friends = TRUE;
-  }
+  <?php if (sizeof($mutual)): ?>
+    <span class='subhead'><?=$name2?> mutual friends</span>
+    <ul>
+      <?php foreach($mutual as $friend): ?>
+      <li><a data-transition='slide'
+            href='?page=members&view=<?=$friend?>'><?=$friend?></a>";
+      <?php endforeach; ?>
+    </ul>
+    <?php $friends = TRUE; ?>
+  <?php endif; ?>
 
-  if (sizeof($followers))
-  {
-    echo "<span class='subhead'>$name2 followers</span><ul>";
-    foreach($followers as $friend)
-      echo "<li><a data-transition='slide'
-            href='members.php?view=$friend'>$friend</a>";
-    echo "</ul>";
-    $friends = TRUE;
-  }
+  <?php if (sizeof($followers)): ?>
+    <span class='subhead'><?=$name2?> followers</span>
+    <ul>
+      <?php foreach($followers as $friend): ?>
+      <li><a data-transition='slide'
+          href='?page=members&view=<?=$friend?>'><?=$friend?></a>";
+      <?php endforeach; ?>
+    </ul>
+    <?php $friends = TRUE; ?>
+  <?php endif; ?>
 
-  if (sizeof($following))
-  {
-    echo "<span class='subhead'>$name3 following</span><ul>";
-    foreach($following as $friend)
-      echo "<li><a data-transition='slide'
-            href='members.php?view=$friend'>$friend</a>";
-    echo "</ul>";
-    $friends = TRUE;
-  }
 
-  if (!$friends) echo "<br>You don't have any friends yet.";
+  <?php if (sizeof($following)): ?>
+    <span class='subhead'>$name3 following</span>
+    <ul>
+      <?php foreach($following as $friend): ?>
+      <li><a data-transition='slide'
+            href='?page=members&view=<?=$friend?>'><?=$friend?></a>
+      <?php endforeach; ?>
+    </ul>
+    <?php $friends = TRUE; ?>
+  <?php endif; ?>
 
-  require_once 'footer.php';
-?>
+
+  <?php if (!$friends): ?>
+    <br>
+    <span>You don't have any friends yet.</span>
+  <?php endif; ?>
+
+<?php require_once 'footer.php'; ?>

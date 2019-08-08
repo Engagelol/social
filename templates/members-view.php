@@ -1,23 +1,22 @@
+<?php require_once 'header.php'; ?>
+
+  <h3>$name Profile</h3>
+
+  <?php showProfile($view); ?>
+
+  <a data-role='button' data-transition='slide'
+          href='?page=messages&view=<?=$view?>'>View <?=$name?> messages
+  </a>
+
+  <h3>Other Members</h3>
+  <ul>
 <?php
-  require_once 'header.php';
-
-  if (!$loggedin) die();
-
-    echo "<h3>$name Profile</h3>";
-    showProfile($view);
-    echo "<a data-role='button' data-transition='slide'
-          href='messages.php?view=$view'>View $name messages</a>";
-    die("</div></body></html>");
-  }
-
-  echo "<h3>Other Members</h3><ul>";
-
   for ($j = 0 ; $j < $num ; ++$j)
   {
     $row = $result->fetch_array(MYSQLI_ASSOC);
     if ($row['user'] == $user) continue;
 
-    echo "<li><a data-transition='slide' href='members.php?view=" .
+    echo "<li><a data-transition='slide' href='?page=members&view=" .
       $row['user'] . "'>" . $row['user'] . "</a>";
     $follow = "follow";
 
@@ -39,6 +38,6 @@
       href='members.php?remove=" . $row['user'] . "'>drop</a>]";
   }
 ?>
-    </ul></div>
-  </body>
-</html>
+  </ul>
+
+<?php require_once 'footer.php'; ?>

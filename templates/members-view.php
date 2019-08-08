@@ -10,7 +10,7 @@
 
   <h3>Other Members</h3>
   <ul>
-<?php
+<?//РАЗОБРАТЬ!!!!!!!
   for ($j = 0 ; $j < $num ; ++$j)
   {
     $row = $result->fetch_array(MYSQLI_ASSOC);

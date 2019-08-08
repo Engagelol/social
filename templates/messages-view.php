@@ -1,23 +1,22 @@
-<?php
-  require_once 'header.php';
+<?php require_once 'header.php'; ?>
 
-    echo "<h3>$name1 Messages</h3>";
-    showProfile($view);
-?>
-      <form method='post' action='messages.php?view=$view'>
-        <fieldset data-role="controlgroup" data-type="horizontal">
-          <legend>Type here to leave a message</legend>
-          <input type='radio' name='pm' id='public' value='0' checked='checked'>
-          <label for="public">Public</label>
-          <input type='radio' name='pm' id='private' value='1'>
-          <label for="private">Private</label>
-        </fieldset>
-      <textarea name='text'></textarea>
-      <input data-transition='slide' type='submit' value='Post Message'>
-    </form><br>
-<?php
-    date_default_timezone_set('UTC');
+  <h3><?=$name1?> Messages</h3>
+  <?php showProfile($view); ?>
 
+  <form method='post' action='?page=messages&view=<?=$view?>'>
+    <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>Type here to leave a message</legend>
+      <input type='radio' name='pm' id='public' value='0' checked='checked'>
+      <label for="public">Public</label>
+      <input type='radio' name='pm' id='private' value='1'>
+      <label for="private">Private</label>
+    </fieldset>
+    <textarea name='text'></textarea>
+    <input data-transition='slide' type='submit' value='Post Message'>
+  </form><br>
+<?php date_default_timezone_set('UTC'); ?>
+
+<? //РАЗОБРАТЬ!!!!!!!!!!!!!!!!!!
     for ($j = 0 ; $j < $num ; ++$j)
     {
       $row = $result->fetch_array(MYSQLI_ASSOC);
@@ -42,12 +41,13 @@
       }
     }
   }
-
-  if (!$num)
-    echo "<br><span class='info'>No messages yet</span><br><br>";
-
-  echo "<br><a data-role='button'
-        href='messages.php?view=$view'>Refresh messages</a>";
-
-  require_once 'footer.php'
 ?>
+
+  <?php if (!$num): ?>
+    <br><span class='info'>No messages yet</span><br><br>";
+    <br>
+    <a data-role='button'
+        href='?page=messages&view=<?=$view?>'>Refresh messages
+    </a>
+  <?php endif; ?>
+<?php require_once 'footer.php'; ?>

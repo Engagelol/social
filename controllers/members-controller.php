@@ -26,7 +26,7 @@
   $num = $allMembers->num_rows;
 
   $uFollow = uFollow();
-  $t1 = $ufollow->num_rows;
+  $t1 = $uFollow->num_rows;
 
   $followU = followU();
   $t2 = $followU->num_rows;

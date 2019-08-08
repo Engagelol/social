@@ -10,34 +10,28 @@
 
   <h3>Other Members</h3>
   <ul>
-<?//РАЗОБРАТЬ!!!!!!!
-  for ($j = 0 ; $j < $num ; ++$j)
-  {
-    $row = $result->fetch_array(MYSQLI_ASSOC);
-    if ($row['user'] == $user) continue;
 
-    echo "<li><a data-transition='slide' href='?page=members&view=" .
-      $row['user'] . "'>" . $row['user'] . "</a>";
-    $follow = "follow";
+    <?php for ($j = 0 ; $j < $num ; ++$j):
+      $row = $allMembers->fetch_array(MYSQLI_ASSOC);
+      if ($row['user'] == $user) continue;
+      ?>
+      <li><a data-transition='slide' href='?page=members&view=
+        <?=$row['user']?>'><?=$row['user']?></a>
+      <?php $follow = "follow"; ?>
 
-    $result1 = queryMysql("SELECT * FROM friends WHERE
-      user='" . $row['user'] . "' AND friend='$user'");
-    $t1      = $result1->num_rows;
-    $result1 = queryMysql("SELECT * FROM friends WHERE
-      user='$user' AND friend='" . $row['user'] . "'");
-    $t2      = $result1->num_rows;
+      <?php if (($t1 + $t2) > 1): ?>  &harr; is a mutual friend
+        <?php elseif ($t1):         ?>  &larr; you are following
+        <?php elseif ($t2):         ?>  &rarr; is following you
+        <?php $follow = "recip"; ?>
+      <?php endif; ?>
 
-    if (($t1 + $t2) > 1) echo " &harr; is a mutual friend";
-    elseif ($t1)         echo " &larr; you are following";
-    elseif ($t2)       { echo " &rarr; is following you";
-                         $follow = "recip"; }
-
-    if (!$t1) echo " [<a data-transition='slide'
-      href='members.php?add=" . $row['user'] . "'>$follow</a>]";
-    else      echo " [<a data-transition='slide'
-      href='members.php?remove=" . $row['user'] . "'>drop</a>]";
-  }
-?>
+      <?php if (!$t1): ?> [<a data-transition='slide'
+          href='?page=members&add=<?=$row['user']?>'><?=$follow?></a>]
+        <?php else: ?>      [<a data-transition='slide'
+          href='?page=members&remove=<?=$row['user']?>'>drop</a>]
+      </li>
+      <?php endif; ?>
+    <?php endfor; ?>
   </ul>
 
 <?php require_once 'footer.php'; ?>

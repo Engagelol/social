@@ -20,8 +20,8 @@
       <?php $follow = "follow"; ?>
 
       <?php if (($t1 + $t2) > 1): ?>  &harr; is a mutual friend
-        <?php elseif ($t1):         ?>  &larr; you are following
-        <?php elseif ($t2):         ?>  &rarr; is following you
+        <?php elseif ($t1):       ?>  &larr; you are following
+        <?php elseif ($t2):       ?>  &rarr; is following you
         <?php $follow = "recip"; ?>
       <?php endif; ?>
 

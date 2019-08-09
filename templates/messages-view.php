@@ -18,34 +18,25 @@
 
 <?php date_default_timezone_set('UTC'); ?>
 
-<?php
-  for ($j = 0 ; $j < $num ; ++$j)
-  {
-      $row = $result->fetch_array(MYSQLI_ASSOC);
+  <?php foreach ($result as $row): ?>
+    <?php if ($row['pm'] == 0 || $row['auth'] == $user || $row['recip'] == $user): ?>
+      <?= date('M jS \'y g:ia:', $row['time']); ?>
+      <a href='messages.php?view=<?=$row['auth']?>'><?=$row['auth']?></a>
+    <?php endif; ?>
+    <?php if ($row['pm'] == 0): ?>
+      wrote: &quot; <?=$row['message']?> &quot;
+    <?php else: ?>
+      whispered: <span class='whisper'>&quot; <?=$row['message']?> &quot;</span>
+    <?php endif; ?>
 
-      if ($row['pm'] == 0 || $row['auth'] == $user || $row['recip'] == $user)
-      {
-        echo date('M jS \'y g:ia:', $row['time']);
-        echo " <a href='messages.php?view=" . $row['auth'] .
-             "'>" . $row['auth']. "</a> ";
-
-        if ($row['pm'] == 0)
-          echo "wrote: &quot;" . $row['message'] . "&quot; ";
-        else
-          echo "whispered: <span class='whisper'>&quot;" .
-            $row['message']. "&quot;</span> ";
-
-        if ($row['recip'] == $user)
-          echo "[<a href='messages.php?view=$view" .
-               "&erase=" . $row['id'] . "'>erase</a>]";
-
-        echo "<br>";
-      }
-  }
-?>
+    <?php if ($row['recip'] == $user): ?>
+      [<a href='messages.php?view=<?=$view?>&erase=<?=$row['id']?>'>erase</a>]
+    <?php endif; ?>
+  <?php endforeach; ?>
+      <br>
 
   <?php if (!$num): ?>
-    <br><span class='info'>No messages yet</span><br><br>";
+    <br><span class='info'>No messages yet</span><br><br>
     <br>
     <a data-role='button'
         href='?page=messages&view=<?=$view?>'>Refresh messages

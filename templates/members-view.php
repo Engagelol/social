@@ -22,7 +22,7 @@
         <?php $follow = "recip"; ?>
       <?php endif; ?>
 
-      <?php if (!$t1): ?> [<a data-transition='slide' href='?page=members&add=<?=$connection['user']?>'><?=$follow?></a>]
+      <?php if (!$connection["t1"]): ?> [<a data-transition='slide' href='?page=members&add=<?=$connection['user']?>'><?=$follow?></a>]
         <?php else: ?>      [<a data-transition='slide' href='?page=members&remove=<?=$connection['user']?>'>drop</a>]
       </li>
       <?php endif; ?>

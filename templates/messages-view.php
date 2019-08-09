@@ -21,7 +21,7 @@
   <?php foreach ($result as $row): ?>
     <?php if ($row['pm'] == 0 || $row['auth'] == $user || $row['recip'] == $user): ?>
       <?= date('M jS \'y g:ia:', $row['time']); ?>
-      <a href='messages.php?view=<?=$row['auth']?>'><?=$row['auth']?></a>
+      <a href='?page=messages?view=<?=$row['auth']?>'><?=$row['auth']?></a>
     <?php endif; ?>
     <?php if ($row['pm'] == 0): ?>
       wrote: &quot; <?=$row['message']?> &quot;
@@ -30,16 +30,14 @@
     <?php endif; ?>
 
     <?php if ($row['recip'] == $user): ?>
-      [<a href='messages.php?view=<?=$view?>&erase=<?=$row['id']?>'>erase</a>]
+      [<a href='?page=messages?view=<?=$view?>&erase=<?=$row['id']?>'>erase</a>]
     <?php endif; ?>
+    <br>
   <?php endforeach; ?>
-      <br>
 
   <?php if (!$num): ?>
     <br><span class='info'>No messages yet</span><br><br>
     <br>
-    <a data-role='button'
-        href='?page=messages&view=<?=$view?>'>Refresh messages
-    </a>
   <?php endif; ?>
+  <a data-role='button' href='?page=messages&view=<?=$view?>'>Refresh messages</a>
 <?php require_once 'footer.php'; ?>

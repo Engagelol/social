@@ -19,7 +19,7 @@
       <div data-role='content'>
         <?php if ($loggedin): ?>
           <div class='center'>
-            <a data-role='button' data-inline='true' data-icon='home' data-transition="slide" href='members.php?view=<?=$user?>'>Home</a>
+            <a data-role='button' data-inline='true' data-icon='home' data-transition="slide" href='/'>Home</a>
             <a data-role='button' data-inline='true' data-icon='user' data-transition="slide" href='/?page=members'>Members</a>
             <a data-role='button' data-inline='true' data-icon='cart' data-transition="slide" href='/?page=products'>Products</a>
             <a data-role='button' data-inline='true' data-icon='heart' data-transition="slide" href='/?page=friends'>Friends</a><br>
@@ -29,7 +29,7 @@
           </div>
         <?php else: ?>
           <div class='center'>
-            <a data-role='button' data-inline='true' data-icon='home' data-transition='slide' href='index.php'>Home</a>
+            <a data-role='button' data-inline='true' data-icon='home' data-transition='slide' href='/'>Home</a>
             <a data-role='button' data-inline='true' data-icon='cart' data-transition="slide" href='/?page=products'>Products</a>
             <a data-role='button' data-inline='true' data-icon='plus' data-transition="slide" href='/?page=signup'>Sign Up</a>
             <a data-role='button' data-inline='true' data-icon='check' data-transition="slide" href='/?page=login'>Log In</a>

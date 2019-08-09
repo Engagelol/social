@@ -4,7 +4,7 @@
     <?php destroySession(); ?>
     <br>
     <div class='center'>You have been logged out. Please
-         <a data-transition='slide' href='index.php'>click here</a>
+         <a data-transition='slide' href='../index.php'>click here</a>
          to refresh the screen.
     </div>
 

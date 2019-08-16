@@ -18,7 +18,7 @@
 
 <?php date_default_timezone_set('UTC'); ?>
 
-  <?php foreach ($result as $row): ?>
+  <?php foreach ($messages as $row): ?>
     <?php if ($row['pm'] == 0 || $row['auth'] == $user || $row['recip'] == $user): ?>
       <?= date('M jS \'y g:ia:', $row['time']); ?>
       <a href='?page=messages?view=<?=$row['auth']?>'><?=$row['auth']?></a>
@@ -40,4 +40,5 @@
     <br>
   <?php endif; ?>
   <a data-role='button' href='?page=messages&view=<?=$view?>'>Refresh messages</a>
+
 <?php require_once 'footer.php'; ?>

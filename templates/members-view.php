@@ -12,7 +12,7 @@
   <h3>Other Members</h3>
   <ul>
     <?php foreach ($connections as $connection): ?>
-      <li><a data-transition='slide' href='?page=members&view<?=connection['user']?>'><?=$connection['user']?></a>
+      <li><a data-transition='slide' href='?page=members&view=<?=connection['user']?>'><?=$connection['user']?></a>
 
       <?php $follow = "follow"; ?>
 

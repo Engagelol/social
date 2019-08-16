@@ -1,16 +1,15 @@
 <?php
 
-  if (isset($_GET['add']))
-  {
-    $add = sanitizeString($_GET['add']);
-
+  function prep_for_add_friend($add, $user) {
     $result = queryMysql("SELECT * FROM friends WHERE user='$add' AND friend='$user'");
-    if (!$result->num_rows)
-      queryMysql("INSERT INTO friends VALUES ('$add', '$user')");
+    return $result;
   }
-  elseif (isset($_GET['remove']))
-  {
-    $remove = sanitizeString($_GET['remove']);
+
+  function add_friend($add, $user) {
+    queryMysql("INSERT INTO friends VALUES ('$add', '$user')");
+  }
+
+  function delete_friend($remove, $user) {
     queryMysql("DELETE FROM friends WHERE user='$remove' AND friend='$user'");
   }
 

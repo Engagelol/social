@@ -18,7 +18,7 @@
     $name3 = "$view is";
   }
 
-  $result = get_friends($view);
+  $result = get_friends($user);
   $num = get_num_rows($result);
 
   $followers = array();
@@ -34,7 +34,7 @@
   //   $followers[$j] = $row['friend'];
   // }
 
-  $result = get_friends_view($view);
+  $result = get_friends_view($user);
   $num = get_num_rows($result);
 
   foreach ($result as $row) {

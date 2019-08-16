@@ -29,7 +29,7 @@
 
 
   <?php if (sizeof($following)): ?>
-    <span class='subhead'>$name3 following</span>
+    <span class='subhead'><?=$name3?> following</span>
     <ul>
       <?php foreach($following as $friend): ?>
       <li><a data-transition='slide'

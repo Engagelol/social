@@ -4,7 +4,7 @@
 
   <?php showProfile($user); ?>
       <form data-ajax='false' method='post'
-        action='profile.php' enctype='multipart/form-data'>
+        action='?page=profile' enctype='multipart/form-data'>
         <h3>Enter or edit your details and/or upload an image</h3>
         <textarea name='text'><?=$text?></textarea><br>
         Image: <input type='file' name='image' size='14'>
